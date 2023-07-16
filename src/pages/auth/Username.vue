@@ -43,7 +43,8 @@ const submit = () => {
       :class="{ 'bg-opacity-75 cursor-not-allowed': loading }"
       class="flex flex-none items-center justify-center rounded-lg border-2 border-black bg-black px-3 py-2 font-medium text-white focus:ring-2 focus:ring-black focus:ring-offset-2 md:px-4 md:py-3"
     >
-      Let me in
+      <span v-if="!loading">Let me in</span>
+      <span v-else>Processing...</span>
     </button>
   </div>
 </template>
