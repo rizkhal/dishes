@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
-import path from 'path';
+import { resolve } from 'path';
 import svgLoader from 'vite-svg-loader';
 import viteExtend from 'vite-plugin-vue-setup-extend';
 
@@ -12,7 +12,7 @@ export default defineConfig({
     vue({
       template: {
         transformAssetUrls: {
-          base: null,
+          base: '/src',
           includeAbsolute: false,
         },
       },
@@ -20,7 +20,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '~': path.resolve(__dirname, './src'),
+      '~': resolve(__dirname, '/src'),
     },
   },
 });

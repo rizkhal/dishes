@@ -1,24 +1,27 @@
 {
   "root": true,
-  "parser": "@typescript-eslint/parser",
   "env": {
     "node": true
   },
   "extends": [
-    "prettier",
     "eslint:recommended",
     "plugin:vue/vue3-recommended",
     "plugin:prettier/recommended",
-    "plugin:tailwindcss/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/eslint-recommended"
+    // "plugin:tailwindcss/recommended",
+    "prettier"
   ],
+  "parserOptions": {
+    "ecmaVersion": 13,
+    "sourceType": "module"
+  },
   "rules": {
     "no-console": 0,
+    "vue/require-default-prop": "off",
     "vue/multi-word-component-names": "off"
   },
   "plugins": [
-    "tailwindcss",
-    "@typescript-eslint"
+    "vue",
+    "prettier",
+    // "tailwindcss"
   ]
 }

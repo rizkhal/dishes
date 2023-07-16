@@ -3,11 +3,13 @@
     "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
+    "useDefineForClassFields": true,
     "strict": true,
     "jsx": "preserve",
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
+    "skipLibCheck": true,
     "allowJs": true,
     "lib": [
       "esnext",
@@ -17,6 +19,10 @@
     "typeRoots": [
       "./node_modules/@types",
       "./src/types"
+    ],
+    "types": [
+      "node",
+      "vite/client"
     ],
     "paths": {
       "~/*": [

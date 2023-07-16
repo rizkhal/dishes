@@ -1,8 +1,8 @@
 <script setup name="ProtectedLayout">
-import Overlay from '../dashboard/provider/Overlay.vue';
-import TopNavigation from '../dashboard/topnavigation/Index.vue';
-import SideNavigation from '../dashboard/sidenavigation/Index.vue';
-import DashboardProvider from '../dashboard/provider/Provider.vue';
+import Overlay from '../provider/dashboard/provider/Overlay.vue';
+import TopNavigation from '../provider/dashboard/topnavigation/Index.vue';
+import SideNavigation from '../provider/dashboard/sidenavigation/Index.vue';
+import DashboardProvider from '../provider/dashboard/provider/Provider.vue';
 </script>
 
 <template>

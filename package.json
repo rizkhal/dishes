@@ -20,11 +20,10 @@
     "layout"
   ],
   "scripts": {
-    "watch": "vite",
+    "dev": "vite",
     "build": "vite build",
     "serve": "vite preview",
-    "lint": "eslint --fix src",
-    "format": "prettier --write src"
+    "lint": "eslint \"**/*.{vue,ts,js}\""
   },
   "dependencies": {
     "vue": "^3.2.45",
@@ -34,7 +33,6 @@
   "devDependencies": {
     "@types/lodash": "^4.14.192",
     "@types/node": "^18.15.11",
-    "@typescript-eslint/eslint-plugin": "^5.57.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "autoprefixer": "^10.4.13",
     "eslint": "^8.37.0",
@@ -52,8 +50,5 @@
     "vite-plugin-vue-setup-extend": "^0.4.0",
     "vite-svg-loader": "^4.0.0",
     "vue-eslint-parser": "^9.1.1"
-  },
-  "resolutions": {
-    "@typescript-eslint/parser": "^5.0.0"
   }
 }

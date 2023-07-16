@@ -1,15 +1,19 @@
 <script setup lang="ts">
 import f from 'wretch';
+import { ref } from 'vue';
 import Username from './Username.vue';
 import { useRouter } from 'vue-router';
 import Logo from '~/assets/img/logo.svg';
-import { LoginCredentials } from 'types/type';
+import type { LoginCredentials } from '../../types';
 
 const route = useRouter();
+const loading = ref(false);
 
 const API_URL = import.meta.env.VITE_API_URL;
 
 const handleOnLogin = async (credentials: LoginCredentials) => {
+  loading.value = true;
+
   f(`${API_URL}/v1/auth/login`)
     .post(credentials)
     .badRequest((r) => {
@@ -20,6 +24,9 @@ const handleOnLogin = async (credentials: LoginCredentials) => {
       route.push({
         name: 'Home',
       });
+    })
+    .finally(() => {
+      loading.value = false;
     });
 };
 </script>
@@ -31,7 +38,7 @@ const handleOnLogin = async (credentials: LoginCredentials) => {
       >
         <div class="flex items-center justify-start space-x-3">
           <Logo />
-          <a href="#" class="mt-2.5 text-xl font-medium">Dishes</a>
+          <a href="#" class="text-xl font-medium">Dishes</a>
         </div>
         <div class="space-y-5">
           <h1 class="font-extrabold lg:text-3xl xl:text-5xl xl:leading-snug">
@@ -44,16 +51,10 @@ const handleOnLogin = async (credentials: LoginCredentials) => {
       <div
         class="relative flex flex-1 flex-col items-center justify-center px-10"
       >
-        <div class="flex w-full items-center justify-between py-4 lg:hidden">
+        <div class="flex w-full items-center justify-center pt-24 lg:hidden">
           <div class="flex items-center justify-start space-x-3">
             <Logo />
-            <a href="#" class="mt-2.5 text-lg font-medium">Dishes</a>
-          </div>
-          <div class="flex items-center space-x-2">
-            <span>Not a member? </span>
-            <a href="#" class="font-medium text-[#070eff] underline">
-              Sign up now
-            </a>
+            <a href="#" class="text-lg font-medium">Dishes</a>
           </div>
         </div>
         <!-- Login box -->
@@ -67,7 +68,7 @@ const handleOnLogin = async (credentials: LoginCredentials) => {
             </p>
           </div>
 
-          <Username @on-login="handleOnLogin" />
+          <Username @on-login="handleOnLogin" :loading="loading" />
         </div>
       </div>
     </div>
